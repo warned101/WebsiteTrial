@@ -9,270 +9,59 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300i&display=swap" rel="stylesheet">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> -->
-    <link rel="stylesheet" href="style/style.css">
-    <title>CourseDekho</title>
-    <link rel="icon" href="logo.png" type="image/x-icon">
-    <style>
-        body {
-            /* font-family: "Montserrat", sans-serif; */
-            -webkit-font-smoothing: antialiased;
-            background-color: #F2CA51;
-            /* background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/5908/food.png"); */
-        }
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
 
-        .container {
-            padding: 25px 100px;
-            max-width: 1200px;
-            margin: 25 auto;
-        }
-
-        .document {
-            background-color: #F2CA51;
-            padding: 100px 20px;
-            border-radius: 5px;
-        }
-
-        .document__content {
-            -webkit-column-count: 1;
-            column-count: 1;
-            -webkit-column-gap: 20px;
-            column-gap: 20px;
-            padding: 30px 0;
-            margin: 0 100px;
-            /* font-family: 'Roboto', sans-serif; */
-            text-transform: none;
-        }
-
-        @media screen and (min-width: 1200px) {
-            .document__content {
-                -webkit-column-count: 2;
-                column-count: 2;
-            }
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-        }
-
-        p {
-            margin: 0 20px 20px;
-            font-size: 18px;
-            line-height: 1.5em;
-            color: #333;
-        }
-
-        .brace {
-            width: auto;
-            min-width: 35px;
-            padding-bottom: 20px;
-            font-size: 2em;
-            line-height: 2em;
-            position: relative;
-            text-align: center;
-            vertical-align: middle;
-            margin: 0 15px 15px;
-            border: none;
-            background-color: transparent;
-            background-image: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0) 14.5px, #fff 15.5px, #fff 19.5px, rgba(255, 255, 255, 0) 20.5px), radial-gradient(circle at 35px 0, rgba(255, 255, 255, 0) 14.5px, #fff 15.5px, #fff 19.5px, rgba(255, 255, 255, 0) 20.5px);
-            background-size: 35px 20px;
-            background-position: center bottom;
-            background-repeat: no-repeat;
-            text-transform: lowercase;
-            font-style: italic;
-            color: #fff;
-            -webkit-filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
-            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
-            overflow: visible;
-        }
-
-        .brace:before {
-            width: 50%;
-            border-top: 5px solid #fff;
-            border-left: 1px solid transparent;
-            /* play with this until you like the look of it */
-            border-top-left-radius: 20% 30px;
-            height: 100%;
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: -15px;
-            box-sizing: border-box;
-            margin-top: -5px;
-        }
-
-        .brace:after {
-            width: 50%;
-            border-top: 5px solid #fff;
-            border-right: 1px solid transparent;
-            /* play with this until you like the look of it */
-            border-top-right-radius: 20% 30px;
-            height: 100%;
-            content: "";
-            position: absolute;
-            top: 100%;
-            right: -15px;
-            box-sizing: border-box;
-            margin-top: -5px;
-        }
-
-        /* center the blockquote in the page */
-        .blockquote-wrapper {
-            display: flex;
-            height: 100vh;
-            padding: 0 20px;
-        }
-
-        /* Blockquote main style */
-        .blockquote {
-            position: relative;
-            font-family: 'Barlow Condensed', sans-serif;
-            max-width: 620px;
-            margin: 80px auto;
-            align-self: center;
-        }
-
-        /* Blockquote header */
-        .blockquote h1 {
-            font-family: 'Abril Fatface', cursive;
-            position: relative;
-            /* for pseudos */
-            color: #e74848;
-            font-size: 2.8rem;
-            font-weight: normal;
-            line-height: 1;
-            margin: 0;
-            border: 2px solid #fff;
-            border: solid 2px;
-            border-radius: 20px;
-            padding: 25px;
-        }
-
-        /* Blockquote right double quotes */
-        .blockquote h1:after {
-            content: "";
-            position: absolute;
-            border: 2px solid #e74848;
-            border-radius: 0 50px 0 0;
-            width: 60px;
-            height: 60px;
-            bottom: -62px;
-            left: 50px;
-            border-bottom: none;
-            border-left: none;
-            z-index: 3;
-        }
-
-        .blockquote h1:before {
-            content: "";
-            position: absolute;
-            width: 80px;
-            border: 6px solid #292a2b;
-            bottom: -3px;
-            left: 50px;
-            z-index: 2;
-        }
-
-        /* increase header size after 600px */
-        @media all and (min-width: 600px) {
-            .blockquote h1 {
-                font-size: 3rem;
-                line-height: 1.2;
-            }
-
-        }
-
-        /* Blockquote subheader */
-        .blockquote h4 {
-            position: relative;
-            color: #ffffff;
-            font-size: 1.3rem;
-            font-weight: 400;
-            line-height: 1.2;
-            margin: 0;
-            padding-top: 15px;
-            z-index: 1;
-            margin-left: 150px;
-            padding-left: 12px;
-        }
-
-
-        .blockquote h4:first-letter {
-            margin-left: -12px;
-        }
-    </style>
+<link rel="stylesheet" href="style/style.css">
+<title>Course Dekho</title>
 </head>
 
 <body>
-
-    <!-- Under work -->
-    <!-- <div class="container-fluid">
-                <div id="intro" onclick="intro()">
-                    <svg viewBox="0 0 600 300"> -->
-    <!-- Symbol-->
-    <!-- <symbol id="s-text">
-                            <text text-anchor="middle" x="50%" y="50%" dy=".35em">COURSE DEKHO</text>
-                        </symbol> -->
-    <!-- Duplicate symbols-->
-    <!-- <use class="text" xlink:href="#s-text"></use>
-                        <use class="text" xlink:href="#s-text"></use>
-                        <use class="text" xlink:href="#s-text"></use>
-                        <use class="text" xlink:href="#s-text"></use>
-                        <use class="text" xlink:href="#s-text"></use>
-                    </svg>
-                </div>
-             </div> -->
-
-    <div class="container">
-        <div class="document">
-            <div id="head">
-                <img class="center" src="newlogo.jpeg" alt="">
-            </div>
-            <hr class="brace">
-            <div class="document__content">
-
-                <p>We aim to provide personalized recommendation of
-                    courses!
-                    We help people to build their career by providing them the best possible course available at
-                    minimum
-                    cost.
-
-                    The course given is certified by industry experts and is credible.</p>
-
-                <p>
-                    Help us by filling <a href=" https://www.surveymonkey.com/r/2WGG7FW">this</a> survey and you can
-                    get a
-                    chance to win exciting prizes worth INR 1000. Just share and enter the referral number from
-                    where you
-                    got to know about this survey!
-                </p>
-
-            </div>
+    <div class="container-fluid">
+        <div id="intro" onclick="intro()">
+            <svg viewBox="0 0 600 300">
+                <!-- Symbol-->
+                <symbol id="s-text">
+                    <text text-anchor="middle" x="50%" y="50%" dy=".35em">COURSE DEKHO</text>
+                </symbol>
+                <!-- Duplicate symbols-->
+                <use class="text" xlink:href="#s-text"></use>
+                <use class="text" xlink:href="#s-text"></use>
+                <use class="text" xlink:href="#s-text"></use>
+                <use class="text" xlink:href="#s-text"></use>
+                <use class="text" xlink:href="#s-text"></use>
+            </svg>
         </div>
-        <div class="blockquote-wrapper">
-            <div class="blockquote">
-                <h1>
-                    We dream to provide every student <span style="color:#ffffff">the best possible solution</span> of
-                    their problems and help to build a<span style="color:#ffffff"> better future </span>
-                </h1>
-                <h4>&mdash; Astitva Gupta, Amber Mithal <br><em></em></h4>
+    </div>
+    <div class="container-fluid" id="main">
+        <!-- <div class="row">
+            <div id="head" class="col-lg">
+                    <img class="center" src="newlogo.jpeg" alt="">
+            </div>
+        </div> -->
+        <!-- <div class="row">
+            <div class="col-lg" id="home"> -->
+                <!-- <div id="home" class="float-right"> -->
+                    <!-- <p style="font-family: 'Open Sans', sans-serif; ">We aim to provide personalized recommendation of
+                        courses!
+                        We help people to build their career by providing them the best possible course available at
+                        minimum
+                        cost.
+
+                        The course given is certified by industry experts and is credible.</p>
+                    <p>
+                        Help us by filling <a href=" https://www.surveymonkey.com/r/2WGG7FW">this</a> survey and you can
+                        get a
+                        chance to win exciting prizes worth INR 1000. Just share and enter the referral number from
+                        where you
+                        got to know about this survey!
+                    </p> -->
+                <!-- </div> -->
             </div>
         </div>
     </div>
 </body>
 <script>
-    function intro() {
-        document.getElementById('intro').style.display = "none";
-        document.body.style.background = 'white';
-        document.getElementById('main').style.display = "block";
-    }
-</script>
+setTimeout(function(){window.location.href='test.html'},1000);</script>
 
 </html>
