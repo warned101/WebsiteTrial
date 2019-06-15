@@ -115,3 +115,8 @@ svg {
   5px;
   width: 50%;
 }
+.card{
+  font-size: 5px;
+  text-transform: none;
+  font-family: Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif; 
+}
